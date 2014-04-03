@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <iostream>
-#include <map>
 
 #define upperBound 10000
 
