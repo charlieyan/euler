@@ -1,0 +1,2 @@
+all:
+	python cycle.py
