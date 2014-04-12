@@ -13,12 +13,38 @@ def sumOfDigitsToPower(n, p):
 
 def compute(n):
   numDigits = 1
-  # compute upperBound
-  upperBound = math.pow(9,5) 
-  sum = 0
+  lowerBound = 1
+  s = 0
 
-  if (sumOfDigitsToPower(1634,4)):
-    print "True!"
+  # compute upperBound
+  maxSum = numDigits*math.pow(9,n)
+  maxRepresentable = int(numDigits * "9")
+
+  while (maxRepresentable <= maxSum):
+    # iterate through 
+    for i in range(lowerBound,int(maxRepresentable)+1):
+      if (sumOfDigitsToPower(i,n) and i != 1):
+        s = s + i
+        print "found: " + str(i)
+
+    # update number of digits
+    numDigits = numDigits + 1
+
+    # update lowerBound
+    lowerBound = maxRepresentable
+
+    # update maxSum and maxRepresentable
+    maxSum = numDigits*math.pow(9,n)
+    maxRepresentable = int(numDigits * "9")
+
+  # one last iteration
+  for i in range(lowerBound,int(maxRepresentable)+1):
+    if (sumOfDigitsToPower(i,n) and i != 1):
+      s = s + i
+      print "found: " + str(i)
+
+
+  return s
 
 if __name__ == '__main__':
   print compute(POWER)
